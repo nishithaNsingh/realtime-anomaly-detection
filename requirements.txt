@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+scikit-learn
+pandas
+numpy
+joblib
+sqlalchemy
+websockets==16.0
+pydantic
