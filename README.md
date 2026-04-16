@@ -43,6 +43,7 @@ Client (Simulator)
 
 ## 📂 Project Structure
 
+```text
 realtime-anomaly-detection/
 │
 ├── app/
@@ -50,12 +51,14 @@ realtime-anomaly-detection/
 │   ├── routes.py
 │   ├── websocket.py
 │   ├── schemas.py
+│   │
 │   ├── services/
 │   │   ├── inference.py
 │   │   ├── cache.py
+│   │
 │   ├── ml/
-│       ├── train.py
-│       ├── model.pkl
+│   │   ├── train.py
+│   │   ├── model.pkl
 │
 ├── scripts/
 │   ├── simulate_stream.py
@@ -63,6 +66,21 @@ realtime-anomaly-detection/
 │
 ├── requirements.txt
 └── README.md
+
+```
+
+## 📊 Dataset
+
+This project uses the **Credit Card Fraud Detection dataset**:
+
+👉 https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud
+
+### Setup
+
+1. Download the dataset from Kaggle  
+2. Place the file as: app/ml/creditcard.csv
+
+⚠️ Note: Dataset is not included in this repository due to size limitations.
 
 ---
 
@@ -73,44 +91,61 @@ realtime-anomaly-detection/
 3. Data is passed to ML model  
 4. Cache is checked  
 5. Result is returned instantly  
-
 ---
-
 ## 🧪 Running the Project
 
-### Clone repo
-git clone <your-repo-link>
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/nishithaNsingh/realtime-anomaly-detection
 cd realtime-anomaly-detection
-
-### Create venv
-python -m venv venv
-venv\Scripts\activate
-
-### Install dependencies
-pip install -r requirements.txt
-
-### Train model
-cd app/ml
-python train.py
-
-### Run server
-uvicorn app.main:app --reload
-
-### Test API
-http://127.0.0.1:8000/docs
-
-### Run streaming simulator
-python scripts/simulate_stream.py
-
-### Run anomaly-heavy test
-python scripts/test.py
+````
 
 ---
 
-## 🧪 Sample Output
+### 2. Create virtual environment
 
-Input: ANOMALY → {"anomaly": 1}  
-Input: NORMAL → {"anomaly": 0}
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+
+---
+
+### 3. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+### 4. Train the model
+
+```bash
+cd app/ml
+python train.py
+```
+
+---
+
+### 5. Run the server
+
+```bash
+uvicorn app.main:app --reload
+```
+
+---
+
+### 6. Test API
+
+Open in browser:
+
+```
+http://127.0.0.1:8000/docs
+```
+
 
 ---
 
